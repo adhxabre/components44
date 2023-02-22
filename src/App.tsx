@@ -1,51 +1,27 @@
 import React from "react";
-import Button from "react-bootstrap/Button";
+import Badge from "react-bootstrap/Badge";
 
-import Login from "./modal/Login";
-import Register from "./modal/Register";
-
-function App() {
-  const [showLogin, setShowLogin] = React.useState(false);
-  const [showRegister, setShowRegister] = React.useState(false);
-
-  const handleCloseLogin = () => setShowLogin(false);
-  const handleShowLogin = () => setShowLogin(true);
-
-  const handleCloseRegister = () => setShowRegister(false);
-  const handleShowRegister = () => setShowRegister(true);
-
-  const popLogin = () => {
-    setShowLogin(true);
-    setShowRegister(false);
-  };
-
-  const popRegister = () => {
-    setShowLogin(false);
-    setShowRegister(true);
-  };
-
+export default function App() {
   return (
     <>
-      <Button variant="primary" onClick={handleShowLogin}>
-        Login
-      </Button>
+      <div className="p-5">
+        <h1>Badge</h1>
 
-      <Button variant="primary" onClick={handleShowRegister}>
-        Register
-      </Button>
-
-      <Login
-        show={showLogin}
-        onHide={() => handleCloseLogin()}
-        handleRegister={() => popRegister()}
-      />
-      <Register
-        show={showRegister}
-        onHide={() => handleCloseRegister()}
-        handleLogin={() => popLogin()}
-      />
+        <h1 className="position-relative d-inline-flex align-items-center">
+          <img
+            src="https://ik.imagekit.io/CoffeeLatteShop/Icon_icon_dXDeWrdnd.png"
+            alt="..."
+            style={{ width: "10rem", height: "auto", borderRadius: "100%" }}
+          />
+          <Badge
+            pill
+            bg="danger"
+            style={{ position: "absolute", top: 0, right: 0 }}
+          >
+            1
+          </Badge>
+        </h1>
+      </div>
     </>
   );
 }
-
-export default App;
